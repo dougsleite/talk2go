@@ -1,0 +1,3 @@
+rootProject.name = 'talk2go'
+
+include ':app'
