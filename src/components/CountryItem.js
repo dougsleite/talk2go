@@ -13,7 +13,7 @@ class CountryItem extends Component {
 
     render() {
         const { country } = this.props;
-        
+
         return (
             <View>
                 <CardSection>                       
@@ -45,10 +45,10 @@ const styles = {
         marginRight: 10
     },
     thumbnailStyle: {
-        height: 32,
-        width: 32,
-        borderWidth: 1,
-        borderRadius: 16
+        height: 48,
+        width: 48,
+        borderWidth: 0,
+        borderRadius: 24
     }
 };
 

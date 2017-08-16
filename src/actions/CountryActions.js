@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import {
-    COUNTRIES_FETCH_SUCCESS
+    COUNTRIES_FETCH_SUCCESS,
+    COUNTRIES_FILTER_UPDATED
 } from './types';
 
 export const countriesFetch = () => {
@@ -17,9 +18,15 @@ export const fetchIconUri = ({ uid, icon }) => {
         firebase.storage().ref(`/images/${icon}`)
         .getDownloadURL()
         .then(uri => {
-            console.log('icon:', icon, 'got an uri:', uri);
             firebase.database().ref(`/countries/${uid}`)
             .update({ iconUri: uri });
         });
+    };
+};
+
+export const updateCountriesFilter = (text) => {
+    return {
+        type: COUNTRIES_FILTER_UPDATED,
+        payload: { text }
     };
 };
