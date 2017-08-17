@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView, View } from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import { HeaderEmbeddedSearchBar } from './common';
 import { countriesFetch, updateCountriesFilter } from '../actions';
 import CountryItem from './CountryItem';
 
@@ -37,13 +37,12 @@ class CountryList extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <SearchBar
-                    lightTheme
-                    round
-                    clearIcon
-                    inputStyle={{ color: 'black' }}
-                    placeholder='Search a country' 
-                    onChangeText={this.onSearchChangeText.bind(this)}
+                <HeaderEmbeddedSearchBar
+                    headerText='Talk2Go'
+                    onSearchChangeText={this.onSearchChangeText.bind(this)}
+                    onRightIconPress={() => console.log('settings')}
+                    textColor='white'
+                    backgroundColor='#1f94d0'
                 />
                 <ListView 
                     enableEmptySections

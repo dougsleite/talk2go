@@ -11,6 +11,7 @@ const RouterComponent = () => {
                     component={CountryList}
                     title="Countries"
                     initial
+                    hideNavBar
                 />
             </Scene>
         </Router>
