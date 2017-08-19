@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { CardSection } from './common';
 import { fetchIconUri } from '../actions';
 
@@ -10,25 +11,29 @@ class CountryItem extends Component {
         const { uid, icon } = this.props.country;
         this.props.fetchIconUri({ uid, icon });
     }
-
+    
     render() {
         const { country } = this.props;
 
         return (
-            <View>
-                <CardSection>                       
-                        <View style={styles.thumbnailContainerStyle}>
-                            <Image 
-                                style={styles.thumbnailStyle}
-                                source={{ uri: country.iconUri }}
-                                resizeMode="cover"
-                            />
-                        </View>
-                        <Text style={styles.titleStyle}>
-                            {country.name}
-                        </Text>
-                </CardSection>
-            </View>
+            <TouchableWithoutFeedback 
+                onPress={() => Actions.countryDetail({ country: this.props.country })}
+            >
+                <View>
+                    <CardSection>                       
+                            <View style={styles.thumbnailContainerStyle}>
+                                <Image 
+                                    style={styles.thumbnailStyle}
+                                    source={{ uri: country.iconUri }}
+                                    resizeMode="cover"
+                                />
+                            </View>
+                            <Text style={styles.titleStyle}>
+                                {country.name}
+                            </Text>
+                    </CardSection>
+                </View>
+            </TouchableWithoutFeedback>
         );
     }
 }

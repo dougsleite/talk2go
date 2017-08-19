@@ -1,6 +1,7 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import CountryList from './components/CountryList';
+import CountryDetail from './components/CountryDetail';
 
 const RouterComponent = () => {
     return (
@@ -9,8 +10,12 @@ const RouterComponent = () => {
                 <Scene 
                     key="countryList"
                     component={CountryList}
-                    title="Countries"
                     initial
+                    hideNavBar
+                />
+                <Scene
+                    key="countryDetail"
+                    component={CountryDetail}
                     hideNavBar
                 />
             </Scene>

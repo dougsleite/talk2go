@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { MySearchBar } from './MySearchBar';
 import { CardSection } from './CardSection';
@@ -22,27 +22,22 @@ class HeaderEmbeddedSearchBar extends Component {
 			<View style={[containerStyle, { backgroundColor }]}>
 				<Text style={[textStyle, { color: textColor }]}>{headerText}</Text>
 				<View style={buttonsGroupStyle}>
-					<TouchableWithoutFeedback
+					<Icon 
+						style={iconStyle} 
+						color={textColor || 'black'}
+						name='magnify' 
+						type='material-community' 
 						onPress={() => this.setState({ searchActive: true })}
-					>
-						<Icon 
-							style={iconStyle} 
-							color={textColor || 'black'}
-							name='magnify' 
-							type='material-community' 
-						/>
-					</TouchableWithoutFeedback>
-
-					<TouchableWithoutFeedback
+						component={TouchableOpacity}
+					/>
+					<Icon 
+						style={iconStyle}
+						color={textColor || 'black'}
+						name='dots-vertical' 
+						type='material-community' 
 						onPress={onRightIconPress}
-					>
-						<Icon 
-							style={iconStyle}
-							color={textColor || 'black'}
-							name='dots-vertical' 
-							type='material-community' 
-						/>
-					</TouchableWithoutFeedback>
+						component={TouchableOpacity}							
+					/>
 				</View>
 			</View>	
 		);		

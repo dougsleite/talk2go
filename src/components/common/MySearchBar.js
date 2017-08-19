@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 class MySearchBar extends Component {
@@ -35,6 +35,7 @@ class MySearchBar extends Component {
 					type='material-community' 
 					color={detailColor || 'black'}
 					onPress={onBackPress}
+					component={TouchableOpacity}												
 				/>
 
 				<TextInput
@@ -52,6 +53,7 @@ class MySearchBar extends Component {
 					type='material-community'
 					color='grey'
 					onPress={this.clearText.bind(this)}
+					component={TouchableOpacity}												
 				/>
 			</View>
 		);

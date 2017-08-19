@@ -7,3 +7,4 @@ export * from './Spinner';
 export * from './Confirm';
 export * from './MySearchBar';
 export * from './HeaderEmbeddedSearchBar';
+export * from './HeaderNav';
