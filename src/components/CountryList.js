@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView, View } from 'react-native';
-import { HeaderEmbeddedSearchBar } from './common';
 import { countriesFetch, updateCountriesFilter } from '../actions';
 import CountryItem from './CountryItem';
+import HeaderEmbeddedSearchBar from './HeaderEmbeddedSearchBar';
 
 class CountryList extends Component {
 
