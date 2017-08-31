@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { CardSection } from './common';
 import { fetchIconUri } from '../actions';
+import FlagIcon from './FlagIcon';
 
 class CountryItem extends Component {
 
@@ -20,17 +21,11 @@ class CountryItem extends Component {
                 onPress={() => Actions.countryDetail({ country: this.props.country })}
             >
                 <View>
-                    <CardSection>                       
-                            <View style={styles.thumbnailContainerStyle}>
-                                <Image 
-                                    style={styles.thumbnailStyle}
-                                    source={{ uri: country.iconUri }}
-                                    resizeMode="cover"
-                                />
-                            </View>
-                            <Text style={styles.titleStyle}>
-                                {country.name}
-                            </Text>
+                    <CardSection style={{ alignItems: 'center', paddingLeft: 15 }}>                                            
+                        <FlagIcon flagUri={country.iconUri} />
+                        <Text style={styles.titleStyle}>
+                            {country.name}
+                        </Text>
                     </CardSection>
                 </View>
             </TouchableWithoutFeedback>
@@ -42,18 +37,6 @@ const styles = {
     titleStyle: {
         fontSize: 18,
         paddingLeft: 15
-    },
-    thumbnailContainerStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10
-    },
-    thumbnailStyle: {
-        height: 48,
-        width: 48,
-        borderWidth: 0,
-        borderRadius: 24
     }
 };
 

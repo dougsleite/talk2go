@@ -9,9 +9,9 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case COUNTRIES_FETCH_SUCCESS:
-            return { ...state, data: action.payload };
+    switch (action.type) {        
+         case COUNTRIES_FETCH_SUCCESS:
+             return { ...state, data: action.payload };
         case COUNTRIES_FILTER_UPDATED:
             return { ...state, filter: action.payload.text };
         default:

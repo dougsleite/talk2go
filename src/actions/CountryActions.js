@@ -1,8 +1,16 @@
 import firebase from 'firebase';
 import {
     COUNTRIES_FETCH_SUCCESS,
-    COUNTRIES_FILTER_UPDATED
+    COUNTRIES_FILTER_UPDATED,
+    HOME_COUNTRY_CHANGED
 } from './types';
+
+export const changeHomeCountry = (country) => {
+    return {
+        type: HOME_COUNTRY_CHANGED,
+        payload: country
+    };
+};
 
 export const countriesFetch = () => {
     return (dispatch) => {

@@ -41,16 +41,16 @@ class HeaderEmbeddedSearchBar extends Component {
 					<Icon 
 						style={iconStyle} 
 						color={textColor || 'black'}
-						name='magnify' 
-						type='material-community' 
+						name='ios-search' 
+						type='ionicon' 
 						onPress={this.onSearchIconPress.bind(this)}
 						component={TouchableOpacity}
 					/>
 					<Icon 
 						style={iconStyle}
 						color={textColor || 'black'}
-						name='dots-vertical' 
-						type='material-community' 
+						name='md-more' 
+						type='ionicon' 
 						onPress={onRightIconPress}
 						component={TouchableOpacity}							
 					/>
@@ -70,8 +70,8 @@ class HeaderEmbeddedSearchBar extends Component {
 				
 					<Icon 
 						style={searchBarIconStyle} 
-						name='keyboard-backspace' 
-						type='material-community' 
+						name='ios-arrow-back' 
+						type='ionicon' 
 						color={backgroundColor || 'black'}
 						onPress={this.onBackIconPress.bind(this)}
 						component={TouchableOpacity}												
@@ -86,10 +86,9 @@ class HeaderEmbeddedSearchBar extends Component {
 					/>
 
 					<Icon 
-						size={16}
 						style={searchBarIconStyle} 
-						name='close' 
-						type='material-community'
+						name='ios-close' 
+						type='ionicon'
 						color='grey'
 						onPress={this.clearText.bind(this)}
 						component={TouchableOpacity}												

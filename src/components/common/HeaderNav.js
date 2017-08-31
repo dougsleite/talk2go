@@ -11,8 +11,8 @@ class HeaderNav extends Component {
 			return (
 				<Icon 
 					style={styles.iconStyle} 
-					name='keyboard-backspace' 
-					type='material-community' 
+					name='ios-arrow-back' 
+					type='ionicon' 
 					color={iconColor || 'black'}
 					onPress={onBackPress}
 					component={TouchableOpacity}												

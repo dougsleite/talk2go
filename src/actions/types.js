@@ -5,3 +5,5 @@ export const SEARCH_ENABLED = 'search_enabled';
 export const SEARCH_DISABLED = 'search_disabled';
 export const SEARCH_TEXT_CHANGED = 'search_text_changed';
 export const CLEAR_ICON_PRESSED = 'clear_icon_pressed';
+
+export const HOME_COUNTRY_CHANGED = 'home_country_changed';
