@@ -3,9 +3,9 @@ import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { HeaderNav } from './common';
-import TranslationCard from './TranslationCard';
+import TranslationList from './TranslationList';
 
-class CountryDetail extends Component {
+class TranslationPannel extends Component {
 
     render() {
         const { 
@@ -14,25 +14,27 @@ class CountryDetail extends Component {
             text,
             iconUri
         } = this.props.country;
-        const { homeCountry } = this.props;
         const lang = languages[0];
+
+        const { homeCountry } = this.props;
+
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <HeaderNav
-                    headerText={name}
-                    subText={`English to ${lang.name} (${lang.nativeName})`}
+                    headerTitle={name}
+                    subTitle={`${homeCountry.languages[0].name} to ${lang.name} (${lang.nativeName})`}
                     backgroundColor='#1f94d0'
                     textColor='white'
                     iconColor='white'
                     onBackPress={() => Actions.countryList({ type: 'reset' })}
                 />
-                <TranslationCard
+                <TranslationList
                     toIconUri={iconUri}
                     fromIconUri={homeCountry.iconUri}
                     fromTranslationText={homeCountry.text.greetings}
                 >
                     {text.greetings}
-                </TranslationCard>
+                </TranslationList>
             </View>
         );
     }
@@ -43,4 +45,4 @@ const mapStateToProps = (state) => {
     return { homeCountry };
 };
 
-export default connect(mapStateToProps)(CountryDetail);
+export default connect(mapStateToProps)(TranslationPannel);

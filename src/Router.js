@@ -1,7 +1,7 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import CountryList from './components/CountryList';
-import CountryDetail from './components/CountryDetail';
+import TranslationPannel from './components/TranslationPannel';
 
 const RouterComponent = () => {
     return (
@@ -14,8 +14,8 @@ const RouterComponent = () => {
                     hideNavBar
                 />
                 <Scene
-                    key="countryDetail"
-                    component={CountryDetail}
+                    key="translationPannel"
+                    component={TranslationPannel}
                     hideNavBar
                 />
             </Scene>

@@ -23,15 +23,15 @@ class HeaderNav extends Component {
 
 	render() {
 		const { 
-            headerText, 
-            subText,
+            headerTitle, 
+            subTitle,
             backgroundColor, 
             textColor 
         } = this.props;
 
 		const { 
             mainTextStyle, 
-            subTextStyle, 
+            subTitleStyle, 
             containerStyle, 
             textContainerStyle 
         } = styles;
@@ -43,10 +43,10 @@ class HeaderNav extends Component {
 				}
                 <View style={textContainerStyle}>
                     <Text style={[mainTextStyle, { color: textColor }]}>
-                        {headerText}
+                        {headerTitle}
                     </Text>
-                    <Text style={subTextStyle}>
-                        {subText}
+                    <Text style={subTitleStyle}>
+                        {subTitle}
                     </Text>
                 </View>
 			</View>
@@ -79,7 +79,7 @@ const styles = {
 		color: 'black',
 		fontWeight: '500'
     },
-    subTextStyle: {
+    subTitleStyle: {
 		fontSize: 14,
 		color: 'black',
 		fontWeight: '300'

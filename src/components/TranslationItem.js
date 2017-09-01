@@ -6,20 +6,31 @@ import FlagIcon from './FlagIcon';
 class TranslationItem extends Component {
     render() {
         const { data, fromIconUri, toIconUri } = this.props;
+        const { innerRowStyle, textStyle } = styles;
         return (
             <CardSection style={{ flexDirection: 'column' }}>
-                <CardSection style={{ borderBottomWidth: 0 }}>
+                <CardSection style={innerRowStyle}>
                     <FlagIcon flagUri={fromIconUri} />
-                    <Text>{data.from}</Text>
+                    <Text style={textStyle}>{data.from}</Text>
                 </CardSection>
-                <CardSection style={{ borderBottomWidth: 0 }}>
+                <CardSection style={innerRowStyle}>
                     <FlagIcon flagUri={toIconUri} />
-                    <Text>{data.to}</Text>
+                    <Text style={textStyle}>{data.to}</Text>
                 </CardSection>
             </CardSection>
                  
         );
     }
 }
+
+const styles = {
+    innerRowStyle: {
+        borderBottomWidth: 0, 
+        alignItems: 'center'
+    },
+    textStyle: {
+        paddingLeft: 15
+    }
+};
 
 export default TranslationItem;

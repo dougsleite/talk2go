@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { CardSection } from './common';
@@ -14,7 +14,6 @@ class CountryItem extends Component {
     }
     
     setHomeCountry() {
-        console.log('set as home');
         this.props.changeHomeCountry(this.props.country);        
     }
 
@@ -22,8 +21,8 @@ class CountryItem extends Component {
         const { country } = this.props;
 
         return (
-            <TouchableWithoutFeedback 
-                onPress={() => Actions.countryDetail({ country: this.props.country })}
+            <TouchableHighlight 
+                onPress={() => Actions.translationPannel({ country: this.props.country })}
                 onLongPress={() => this.setHomeCountry()}
             >
                 <View>
@@ -36,7 +35,7 @@ class CountryItem extends Component {
                         </Text>
                     </CardSection>
                 </View>
-            </TouchableWithoutFeedback>
+            </TouchableHighlight>
         );
     }
 }
