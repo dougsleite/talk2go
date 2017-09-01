@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
@@ -25,7 +24,7 @@ class CountryItem extends Component {
         return (
             <TouchableWithoutFeedback 
                 onPress={() => Actions.countryDetail({ country: this.props.country })}
-                onLongPress={() => this.setHomeCountry() }
+                onLongPress={() => this.setHomeCountry()}
             >
                 <View>
                     <CardSection 
