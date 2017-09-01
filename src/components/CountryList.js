@@ -35,9 +35,10 @@ class CountryList extends Component {
     }    
 
     renderRow(country) {
-        return (
-            <CountryItem country={country} />
-        );
+        if (country.uid === this.props.homeCountry.uid) {
+            return <CountryItem country={country} selected />;
+        }
+        return <CountryItem country={country} />;
     }
 
     render() {
@@ -56,7 +57,7 @@ class CountryList extends Component {
                 <ListView 
                     enableEmptySections
                     dataSource={this.dataSource}
-                    renderRow={this.renderRow}
+                    renderRow={this.renderRow.bind(this)}
                 />
             </View>        
         );
@@ -69,10 +70,17 @@ const mapStateToProps = (state) => {
         return { ...val, uid };
     });
     
+    const homeCountry = isEmpty(state.homeCountry) ? countries.find(c => c.name === 'United States of America') : state.homeCountry;
+
     if (filter) {
-        return { countries: countries.filter(c => c.name.startsWith(filter)) };
+        return { countries: countries.filter(c => c.name.startsWith(filter)), homeCountry };
     }   
-    return { countries };
+    
+    return { countries, homeCountry };
+};
+
+const isEmpty = (obj) => {
+    return !Object.keys(obj).length;
 };
 
 export default connect(mapStateToProps, { 

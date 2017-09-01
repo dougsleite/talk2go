@@ -13,21 +13,21 @@ class CountryItem extends Component {
         this.props.fetchIconUri({ uid, icon });
     }
     
-    setHomeCountry() {
-        this.props.changeHomeCountry(this.props.country);        
+    onLongPress() {
+        this.props.changeHomeCountry(this.props.country);
     }
 
     render() {
-        const { country } = this.props;
+        const { country, selected } = this.props;
 
         return (
             <TouchableHighlight 
                 onPress={() => Actions.translationPannel({ country: this.props.country })}
-                onLongPress={() => this.setHomeCountry()}
+                onLongPress={this.onLongPress.bind(this)}
             >
                 <View>
                     <CardSection 
-                        style={{ alignItems: 'center', paddingLeft: 15 }}
+                        style={[{ alignItems: 'center', paddingLeft: 15 }, selected && styles.selected]}
                     >                                            
                         <FlagIcon flagUri={country.iconUri} />
                         <Text style={styles.titleStyle}>
@@ -44,6 +44,9 @@ const styles = {
     titleStyle: {
         fontSize: 18,
         paddingLeft: 15
+    },
+    selected: {
+        backgroundColor: '#b4e1ff'
     }
 };
 
