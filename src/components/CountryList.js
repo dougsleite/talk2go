@@ -27,18 +27,6 @@ class CountryList extends Component {
         this.props.updateCountriesFilter(text);
     }
 
-    //FIX-ME
-    onSettingsPress() {
-        this.setUSAsDefault();
-    }
-
-    setUSAsDefault() {
-        const homeCountry = _.find(this.props.countries, _.matchesProperty('uid', 210));
-        const { uid, icon } = homeCountry;
-        this.props.fetchIconUri({ uid, icon });        
-        this.props.changeHomeCountry(homeCountry);        
-    }
-
     createDataSource({ countries }) {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
@@ -61,7 +49,7 @@ class CountryList extends Component {
                 <HeaderEmbeddedSearchBar
                     headerText='Talk2Go'
                     onSearchChangeText={this.onSearchChangeText.bind(this)}
-                    onRightIconPress={this.onSettingsPress.bind(this)}
+                    onRightIconPress={() => console.log('settings pressed')}
                     textColor='white'
                     backgroundColor='#1f94d0'
                 />

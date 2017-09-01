@@ -1,9 +1,10 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { CardSection } from './common';
-import { fetchIconUri } from '../actions';
+import { fetchIconUri, changeHomeCountry } from '../actions';
 import FlagIcon from './FlagIcon';
 
 class CountryItem extends Component {
@@ -13,15 +14,23 @@ class CountryItem extends Component {
         this.props.fetchIconUri({ uid, icon });
     }
     
+    setHomeCountry() {
+        console.log('set as home');
+        this.props.changeHomeCountry(this.props.country);        
+    }
+
     render() {
         const { country } = this.props;
 
         return (
             <TouchableWithoutFeedback 
                 onPress={() => Actions.countryDetail({ country: this.props.country })}
+                onLongPress={() => this.setHomeCountry() }
             >
                 <View>
-                    <CardSection style={{ alignItems: 'center', paddingLeft: 15 }}>                                            
+                    <CardSection 
+                        style={{ alignItems: 'center', paddingLeft: 15 }}
+                    >                                            
                         <FlagIcon flagUri={country.iconUri} />
                         <Text style={styles.titleStyle}>
                             {country.name}
@@ -40,4 +49,7 @@ const styles = {
     }
 };
 
-export default connect(null, { fetchIconUri })(CountryItem);
+export default connect(null, { 
+    fetchIconUri, 
+    changeHomeCountry 
+})(CountryItem);
