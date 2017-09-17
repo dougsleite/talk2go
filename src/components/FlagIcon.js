@@ -1,9 +1,9 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { CachedImage } from 'react-native-img-cache';
 
 const FlagIcon = ({ flagUri }) => {
     return (
-        <Image 
+        <CachedImage 
             style={styles.flagStyle}
             source={{ uri: flagUri }}
             resizeMode="cover"
