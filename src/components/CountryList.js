@@ -21,10 +21,19 @@ class CountryList extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.createDataSource(nextProps);
+        this.setHomeCountry(nextProps);
     }
 
     onSearchChangeText(text) {
         this.props.updateCountriesFilter(text);
+    }
+
+    setHomeCountry(nextProps) {
+        const { countries, homeCountry } = nextProps;
+        if (isEmpty(homeCountry)) {
+            const us = countries.find(c => c.name === 'United States of America');
+            this.props.changeHomeCountry(us);
+        }
     }
 
     createDataSource({ countries }) {
@@ -69,14 +78,14 @@ const mapStateToProps = (state) => {
     const countries = _.map(state.countries.data, (val, uid) => {
         return { ...val, uid };
     });
-    
-    const homeCountry = isEmpty(state.homeCountry) ? countries.find(c => c.name === 'United States of America') : state.homeCountry;
 
     if (filter) {
-        return { countries: countries.filter(c => c.name.startsWith(filter)), homeCountry };
+        return { 
+            countries: countries.filter(c => c.name.startsWith(filter)), 
+            homeCountry: state.homeCountry 
+        };
     }   
-    
-    return { countries, homeCountry };
+    return { countries, homeCountry: state.homeCountry };
 };
 
 const isEmpty = (obj) => {
