@@ -5,7 +5,7 @@ import TranslationPannel from './components/TranslationPannel';
 
 const RouterComponent = () => {
     return (
-        <Router sceneStyle={{ paddingTop: 65 }}>
+        <Router>
             <Scene key="main">
                 <Scene 
                     key="countryList"
