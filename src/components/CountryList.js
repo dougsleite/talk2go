@@ -51,7 +51,7 @@ class CountryList extends Component {
     }
 
     render() {
-        if (this.props.countries.length === 0) {
+        if (this.props.isLoading) {
             return <Spinner size="large" />;
         }
         return (
@@ -74,7 +74,7 @@ class CountryList extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { filter } = state.countries;
+    const { filter, isLoading } = state.countries;
     const countries = _.map(state.countries.data, (val, uid) => {
         return { ...val, uid };
     });
@@ -85,7 +85,7 @@ const mapStateToProps = (state) => {
             homeCountry: state.homeCountry 
         };
     }   
-    return { countries, homeCountry: state.homeCountry };
+    return { countries, isLoading, homeCountry: state.homeCountry };
 };
 
 const isEmpty = (obj) => {
