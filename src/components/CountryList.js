@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView, View } from 'react-native';
+import { ListView, View, Text } from 'react-native';
 import CountryItem from './CountryItem';
 import HeaderEmbeddedSearchBar from './HeaderEmbeddedSearchBar';
 import { Spinner } from './common';
@@ -63,6 +63,11 @@ class CountryList extends Component {
                     textColor='white'
                     backgroundColor='#1f94d0'
                 />
+                <View style={styles.fromViewStyle}>
+                    <Text style={styles.fromTextStyle}>
+                        I'm from {this.props.homeCountry.name}
+                    </Text>
+                </View>
                 <ListView 
                     enableEmptySections
                     dataSource={this.dataSource}
@@ -90,6 +95,26 @@ const mapStateToProps = (state) => {
 
 const isEmpty = (obj) => {
     return !Object.keys(obj).length;
+};
+
+const styles = {
+	fromViewStyle: {
+		backgroundColor: '#F8F8F8',
+		justifyContent: 'center',
+		alignItems: 'flex-start',
+		height: 30,
+        paddingLeft: 5,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.2,
+		elevation: 2,
+		position: 'relative'
+	},
+	fromTextStyle: {
+        fontSize: 14,
+        color: '#1f94d0',
+        fontWeight: '500'
+	}
 };
 
 export default connect(mapStateToProps, { 
