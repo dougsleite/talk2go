@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-
 class HeaderNav extends Component {
 
 	renderBackButton() {
@@ -21,17 +20,26 @@ class HeaderNav extends Component {
 		}
 	}
 
+	renderSubTitleText() {
+		const { subTitle } = this.props;
+		if (subTitle) {
+			return (
+				<Text style={this.styles.subTitleStyle}>
+					{subTitle}
+				</Text>	
+			);
+		}
+	}
+	
 	render() {
 		const { 
             headerTitle, 
-            subTitle,
             backgroundColor, 
             textColor 
         } = this.props;
 
 		const { 
-            mainTextStyle, 
-            subTitleStyle, 
+            mainTextStyle,             
             containerStyle, 
             textContainerStyle 
         } = styles;
@@ -45,9 +53,9 @@ class HeaderNav extends Component {
                     <Text style={[mainTextStyle, { color: textColor }]}>
                         {headerTitle}
                     </Text>
-                    <Text style={subTitleStyle}>
-                        {subTitle}
-                    </Text>
+					{
+						this.renderSubTitleText()
+					}
                 </View>
 			</View>
 		);
