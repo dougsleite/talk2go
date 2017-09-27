@@ -30,6 +30,8 @@ class TranslationPannel extends Component {
                 <ScrollableTabView
                     renderTabBar={() => <ScrollableTabBar />}
                     ref={(tabView) => { this.tabView = tabView; }}
+                    tabBarActiveTextColor='#1f94d0'
+                    tabBarUnderlineStyle={{ backgroundColor: '#1f94d0' }}
                 >
                 {
                     country.languages.map(l => {

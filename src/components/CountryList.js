@@ -99,10 +99,10 @@ const isEmpty = (obj) => {
 
 const styles = {
 	fromViewStyle: {
-		backgroundColor: '#F8F8F8',
+		//backgroundColor: '#F8F8F8',
 		justifyContent: 'center',
 		alignItems: 'flex-start',
-		height: 30,
+		height: 40,
         paddingLeft: 5,
 		shadowColor: '#000',
 		shadowOffset: { width: 0, height: 2 },
@@ -111,7 +111,7 @@ const styles = {
 		position: 'relative'
 	},
 	fromTextStyle: {
-        fontSize: 14,
+        fontSize: 16,
         color: '#1f94d0',
         fontWeight: '500'
 	}
